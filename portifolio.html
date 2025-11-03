@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Portfólio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#" class="logo">[Seu Nome]</a>
+            <ul>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="inicio">
+            <div class="inicio-content">
+                <h1>Olá, eu sou [José Claudio ]</h1>
+                <p>Desenvolvedor de Software | Apaixonado por Tecnologia</p>
+            </div>
+        </section>
+
+        <section id="sobre">
+            <h2>Sobre Mim</h2>
+            <p>
+                Sou um desenvolvedor de software com experiência em criar soluções eficientes e escaláveis. Tenho um grande interesse em aprender novas tecnologias e aplicá-las para resolver problemas do mundo real. Este portfólio mostra alguns dos projetos em que trabalhei.
+            </p>
+        </section>
+
+        <section id="projetos">
+            <h2>Meus Projetos</h2>
+            <div class="projetos-grid">
+                <div class="projeto-card">
+                    <h3>Controle de Estoque</h3>
+                    <p>Um sistema simples de controle de estoque desenvolvido em Python com uma interface gráfica usando Tkinter. Permite adicionar, remover e visualizar produtos no estoque.</p>
+                    <div class="card-botoes">
+                        <a href="https://github.com/seu-usuario/cotrole_estoque" target="_blank" class="btn-projeto">Ver no GitHub</a>
+                        <button class="btn-projeto btn-codigo">Ver Código</button>
+                    </div>
+                    <div class="codigo-container">
+<pre><code class="language-python">
+import tkinter as tk
+from tkinter import messagebox
+
+class Produto:
+    def __init__(self, nome, quantidade):
+        self.nome = nome
+        self.quantidade = quantidade
+
+    def adicionar_estoque(self, quantidade):
+        self.quantidade += quantidade
+
+    def remover_estoque(self, quantidade):
+        if quantidade <= self.quantidade:
+            self.quantidade -= quantidade
+            return True
+        return False
+
+    def exibir_estoque(self):
+        return f"Estoque de {self.nome}: {self.quantidade} unidades."
+    
+class ControleEstoqueApp:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Controle de Estoque")
+
+        self.produtos = {}
+
+        self.nome_label = tk.Label(root, text="Nome do Produto:")
+        self.nome_label.pack()
+        self.nome_entry = tk.Entry(root)
+        self.nome_entry.pack()
+
+        self.quantidade_label = tk.Label(root, text="Quantidade:")
+        self.quantidade_label.pack()
+        self.quantidade_entry = tk.Entry(root)
+        self.quantidade_entry.pack()
+
+        self.adicionar_button = tk.Button(root, text="Adicionar Produto", command=self.adicionar_produto)
+        self.adicionar_button.pack()
+
+        self.remover_button = tk.Button(root, text="Remover Produto", command=self.remover_produto)
+        self.remover_button.pack()
+
+        self.exibir_button = tk.Button(root, text="Exibir Estoque", command=self.exibir_estoque)
+        self.exibir_button.pack()
+
+    def adicionar_produto(self):
+        nome = self.nome_entry.get()
+        try:
+            quantidade = int(self.quantidade_entry.get())
+            if nome in self.produtos:
+                self.produtos[nome].adicionar_estoque(quantidade)
+            else:
+                self.produtos[nome] = Produto(nome, quantidade)
+            messagebox.showinfo("Sucesso", f"{quantidade} unidades de {nome} adicionadas ao estoque.")
+        except ValueError:
+            messagebox.showerror("Erro", "Quantidade inválida.")
+
+    def remover_produto(self):
+        nome = self.nome_entry.get()
+        try:
+            quantidade = int(self.quantidade_entry.get())
+            if nome in self.produtos and self.produtos[nome].remover_estoque(quantidade):
+                messagebox.showinfo("Sucesso", f"{quantidade} unidades de {nome} removidas do estoque.")
+            else:
+                messagebox.showerror("Erro", f"Não há estoque suficiente de {nome}.")
+        except ValueError:
+            messagebox.showerror("Erro", "Quantidade inválida.")
+
+    def exibir_estoque(self):
+        estoque_info = "\n".join([produto.exibir_estoque() for produto in self.produtos.values()])
+        messagebox.showinfo("Estoque Atual", estoque_info if estoque_info else "Nenhum produto no estoque.")
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = ControleEstoqueApp(root)
+    root.mainloop()
+</code></pre>
+                    </div>
+                </div>
+                <div class="projeto-card">
+                    <h3>Projeto 2</h3>
+                    <p>Descrição breve do seu segundo projeto. Fale sobre as tecnologias usadas e o propósito do projeto.</p>
+                    <a href="#" target="_blank" class="btn-projeto">Ver Projeto</a>
+                </div>
+                <div class="projeto-card">
+                    <h3>Projeto 3</h3>
+                    <p>Descrição breve do seu terceiro projeto. Destaque os desafios e o que você aprendeu.</p>
+                    <a href="#" target="_blank" class="btn-projeto">Ver Projeto</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato">
+            <h2>Contato</h2>
+            <p>Vamos conversar! Você pode me encontrar no <a href="https://www.linkedin.com/in/seu-perfil/" target="_blank">LinkedIn</a> ou me enviar um email para <a href="mailto:seu-email@exemplo.com">seu-email@exemplo.com</a>.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 [Seu Nome]. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

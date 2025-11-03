@@ -3,48 +3,325 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Portfólio</title>
-    <link rel="stylesheet" href="style.css">
+    <title>José - Portfólio de Desenvolvedor</title>
+    <style>
+        /* --- Reset Básico e Estilos Globais --- */
+        :root {
+            --cor-primaria: #1a1a2e;
+            --cor-secundaria: #16213e;
+            --cor-destaque: #0f3460;
+            --cor-texto: #e94560;
+            --cor-texto-claro: #dcdcdc;
+            --fonte-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px; /* Ajuste para o header fixo */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--fonte-principal);
+            background-color: var(--cor-primaria);
+            color: var(--cor-texto-claro);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3 {
+            color: var(--cor-texto);
+            margin-bottom: 1rem;
+        }
+
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid var(--cor-destaque);
+        }
+
+        /* --- Header e Navegação --- */
+        header {
+            background-color: rgba(26, 26, 46, 0.9);
+            color: var(--cor-texto-claro);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        header nav ul li {
+            margin-left: 20px;
+        }
+
+        header nav ul li a {
+            color: var(--cor-texto-claro);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        header nav ul li a:hover {
+            color: var(--cor-texto);
+        }
+
+        /* --- Seção Início (Hero) --- */
+        #inicio {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070') no-repeat center center/cover;
+        }
+
+        #inicio .hero-content h2 {
+            font-size: 3rem;
+        }
+
+        #inicio .hero-content p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--cor-texto);
+            color: var(--cor-primaria);
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #ff6384;
+            transform: translateY(-3px);
+        }
+
+        /* --- Seção Sobre --- */
+        #sobre {
+            text-align: center;
+        }
+        #sobre p {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* --- Seção Projetos --- */
+        .projetos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .projeto-card {
+            background-color: var(--cor-secundaria);
+            border: 1px solid var(--cor-destaque);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .projeto-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .projeto-card h3 {
+            font-size: 1.5rem;
+        }
+
+        .btn-codigo {
+            background-color: var(--cor-destaque);
+            color: var(--cor-texto-claro);
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-codigo:hover {
+            background-color: #1c4b82;
+        }
+
+        .codigo-container {
+            display: none;
+            margin-top: 1rem;
+            background-color: #000;
+            color: #f0f0f0;
+            padding: 1rem;
+            border-radius: 5px;
+            max-height: 400px;
+            overflow-y: auto;
+            text-align: left;
+        }
+
+        .codigo-container pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        /* --- Seção Contato --- */
+        #contato {
+            text-align: center;
+        }
+        #contato p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            background-color: var(--cor-secundaria);
+        }
+
+        /* --- Responsividade --- */
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+            }
+            header nav {
+                margin-top: 1rem;
+            }
+            #inicio .hero-content h2 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
-        <nav>
-            <a href="#" class="logo">[Seu Nome]</a>
-            <ul>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#projetos">Projetos</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <h1>José A.</h1>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#sobre">Sobre Mim</a></li>
+                    <li><a href="#projetos">Projetos</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main>
         <section id="inicio">
-            <div class="inicio-content">
-                <h1>Olá, eu sou [José Claudio ]</h1>
-                <p>Desenvolvedor de Software | Apaixonado por Tecnologia</p>
+            <div class="hero-content">
+                <h2>Desenvolvedor Python</h2>
+                <p>Criando soluções eficientes e aplicações interativas. Bem-vindo ao meu portfólio digital.</p>
+                <a href="#projetos" class="btn">Ver Meus Projetos</a>
             </div>
         </section>
 
-        <section id="sobre">
+        <section id="sobre" class="container">
             <h2>Sobre Mim</h2>
             <p>
-                Sou um desenvolvedor de software com experiência em criar soluções eficientes e escaláveis. Tenho um grande interesse em aprender novas tecnologias e aplicá-las para resolver problemas do mundo real. Este portfólio mostra alguns dos projetos em que trabalhei.
+                Olá! Sou um desenvolvedor em formação, focado em aprender e aplicar novas tecnologias para resolver problemas práticos. Tenho um interesse especial em desenvolvimento de aplicações com Python, explorando desde scripts de automação até interfaces gráficas. Estou sempre em busca de novos desafios para expandir meu conhecimento e minhas habilidades.
             </p>
         </section>
 
-        <section id="projetos">
+        <section id="projetos" class="container">
             <h2>Meus Projetos</h2>
             <div class="projetos-grid">
-                <div class="projeto-card">
+                <!-- Projeto 1: Controle de Estoque -->
+                <article class="projeto-card">
                     <h3>Controle de Estoque</h3>
-                    <p>Um sistema simples de controle de estoque desenvolvido em Python com uma interface gráfica usando Tkinter. Permite adicionar, remover e visualizar produtos no estoque.</p>
-                    <div class="card-botoes">
-                        <a href="https://github.com/seu-usuario/cotrole_estoque" target="_blank" class="btn-projeto">Ver no GitHub</a>
-                        <button class="btn-projeto btn-codigo">Ver Código</button>
-                    </div>
+                    <p>Uma aplicação de desktop construída com Python e Tkinter para gerenciar o estoque de produtos. Permite adicionar, remover e visualizar a quantidade de itens.</p>
+                    <button class="btn-codigo">Ver Código</button>
                     <div class="codigo-container">
-<pre><code class="language-python">
+                        <pre><code># Seu código de cotrole_estoque.py aqui...
+import tkinter as tk
+from tkinter import messagebox
+
+class Produto:
+    # ... (o resto do código do controle de estoque)
+                        </code></pre>
+                    </div>
+                </article>
+
+                <!-- Projeto 2: Cardápio Digital -->
+                <article class="projeto-card">
+                    <h3>Cardápio Digital</h3>
+                    <p>Aplicação com interface gráfica (Tkinter) que simula um cardápio digital. Calcula o total do pedido, incluindo descontos e taxa de serviço opcional.</p>
+                    <button class="btn-codigo">Ver Código</button>
+                    <div class="codigo-container">
+                        <pre><code># Seu código de cardapio_digital.py aqui...
+import tkinter as tk
+from tkinter import ttk
+from PIL import Image, ImageTk
+
+class CardapioDigitalApp:
+    # ... (o resto do código do cardápio digital)
+                        </code></pre>
+                    </div>
+                </article>
+
+                <!-- Adicione mais projetos aqui -->
+
+            </div>
+        </section>
+
+        <section id="contato" class="container">
+            <h2>Contato</h2>
+            <p>Gostou do meu trabalho ou tem alguma pergunta? Vamos nos conectar!</p>
+            <a href="https://github.com/josea" class="btn" target="_blank">Meu GitHub</a>
+            <!-- Adicione um link para seu email ou LinkedIn se desejar -->
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 José A. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Funcionalidade para mostrar/esconder o código dos projetos
+            const codeButtons = document.querySelectorAll('.btn-codigo');
+
+            codeButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const codeContainer = button.nextElementSibling;
+                    const isVisible = codeContainer.style.display === 'block';
+                    
+                    codeContainer.style.display = isVisible ? 'none' : 'block';
+                    button.textContent = isVisible ? 'Ver Código' : 'Esconder Código';
+                });
+            });
+
+            // Preencher os blocos de código (substitua o conteúdo abaixo pelo seu código real)
+            const codigoEstoque = `# criando um sistema online de controle de estoque
 import tkinter as tk
 from tkinter import messagebox
 
@@ -69,85 +346,47 @@ class ControleEstoqueApp:
     def __init__(self, root):
         self.root = root
         self.root.title("Controle de Estoque")
+        self.root.geometry("300x250")
 
         self.produtos = {}
 
-        self.nome_label = tk.Label(root, text="Nome do Produto:")
-        self.nome_label.pack()
-        self.nome_entry = tk.Entry(root)
-        self.nome_entry.pack()
-
-        self.quantidade_label = tk.Label(root, text="Quantidade:")
-        self.quantidade_label.pack()
-        self.quantidade_entry = tk.Entry(root)
-        self.quantidade_entry.pack()
-
-        self.adicionar_button = tk.Button(root, text="Adicionar Produto", command=self.adicionar_produto)
-        self.adicionar_button.pack()
-
-        self.remover_button = tk.Button(root, text="Remover Produto", command=self.remover_produto)
-        self.remover_button.pack()
-
-        self.exibir_button = tk.Button(root, text="Exibir Estoque", command=self.exibir_estoque)
-        self.exibir_button.pack()
-
-    def adicionar_produto(self):
-        nome = self.nome_entry.get()
-        try:
-            quantidade = int(self.quantidade_entry.get())
-            if nome in self.produtos:
-                self.produtos[nome].adicionar_estoque(quantidade)
-            else:
-                self.produtos[nome] = Produto(nome, quantidade)
-            messagebox.showinfo("Sucesso", f"{quantidade} unidades de {nome} adicionadas ao estoque.")
-        except ValueError:
-            messagebox.showerror("Erro", "Quantidade inválida.")
-
-    def remover_produto(self):
-        nome = self.nome_entry.get()
-        try:
-            quantidade = int(self.quantidade_entry.get())
-            if nome in self.produtos and self.produtos[nome].remover_estoque(quantidade):
-                messagebox.showinfo("Sucesso", f"{quantidade} unidades de {nome} removidas do estoque.")
-            else:
-                messagebox.showerror("Erro", f"Não há estoque suficiente de {nome}.")
-        except ValueError:
-            messagebox.showerror("Erro", "Quantidade inválida.")
-
-    def exibir_estoque(self):
-        estoque_info = "\n".join([produto.exibir_estoque() for produto in self.produtos.values()])
-        messagebox.showinfo("Estoque Atual", estoque_info if estoque_info else "Nenhum produto no estoque.")
+        # ... (interface gráfica)
 
 if __name__ == "__main__":
     root = tk.Tk()
     app = ControleEstoqueApp(root)
-    root.mainloop()
-</code></pre>
-                    </div>
-                </div>
-                <div class="projeto-card">
-                    <h3>Projeto 2</h3>
-                    <p>Descrição breve do seu segundo projeto. Fale sobre as tecnologias usadas e o propósito do projeto.</p>
-                    <a href="#" target="_blank" class="btn-projeto">Ver Projeto</a>
-                </div>
-                <div class="projeto-card">
-                    <h3>Projeto 3</h3>
-                    <p>Descrição breve do seu terceiro projeto. Destaque os desafios e o que você aprendeu.</p>
-                    <a href="#" target="_blank" class="btn-projeto">Ver Projeto</a>
-                </div>
-            </div>
-        </section>
+    root.mainloop()`;
 
-        <section id="contato">
-            <h2>Contato</h2>
-            <p>Vamos conversar! Você pode me encontrar no <a href="https://www.linkedin.com/in/seu-perfil/" target="_blank">LinkedIn</a> ou me enviar um email para <a href="mailto:seu-email@exemplo.com">seu-email@exemplo.com</a>.</p>
-        </section>
-    </main>
+            const codigoCardapio = `import tkinter as tk
+from tkinter import ttk
+from PIL import Image, ImageTk
 
-    <footer>
-        <p>&copy; 2024 [Seu Nome]. Todos os direitos reservados.</p>
-    </footer>
+class CardapioDigitalApp:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Cardápio Digital com Desconto")
+        self.root.geometry("800x800")
 
-    <script src="script.js"></script>
+        # --- Dados do Cardápio ---
+        self.menu_items = {
+            "Hambúrguer Clássico": {"price": 25.50, "image": "hamburguer.png"},
+            "Batata Frita (Porção)": {"price": 15.00, "image": "batata_frita.png"},
+            # ... outros itens
+        }
+        # ... (resto da lógica da classe)
+
+    def calcular_total(self):
+        # ... (lógica de cálculo)
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = CardapioDigitalApp(root)
+    root.mainloop()`;
+
+            // Injeta o código nos elementos <pre><code>
+            document.querySelectorAll('.codigo-container code')[0].textContent = codigoEstoque;
+            document.querySelectorAll('.codigo-container code')[1].textContent = codigoCardapio;
+        });
+    </script>
 </body>
 </html>

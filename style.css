@@ -1,0 +1,212 @@
+/* --- Reset Básico e Estilos Globais --- */
+:root {
+    --cor-primaria: #1a1a2e;
+    --cor-secundaria: #16213e;
+    --cor-destaque: #0f3460;
+    --cor-texto: #e94560;
+    --cor-texto-claro: #dcdcdc;
+    --fonte-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Ajuste para o header fixo */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fonte-principal);
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto-claro);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    color: var(--cor-texto);
+    margin-bottom: 1rem;
+}
+
+section {
+    padding: 60px 0;
+    border-bottom: 1px solid var(--cor-destaque);
+}
+
+/* --- Header e Navegação --- */
+header {
+    background-color: rgba(26, 26, 46, 0.9);
+    color: var(--cor-texto-claro);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: var(--cor-texto-claro);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: var(--cor-texto);
+}
+
+/* --- Seção Início (Hero) --- */
+#inicio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070') no-repeat center center/cover;
+}
+
+#inicio .hero-content h2 {
+    font-size: 3rem;
+}
+
+#inicio .hero-content p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--cor-texto);
+    color: var(--cor-primaria);
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #ff6384;
+    transform: translateY(-3px);
+}
+
+/* --- Seção Sobre --- */
+#sobre {
+    text-align: center;
+}
+#sobre p {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* --- Seção Projetos --- */
+.projetos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.projeto-card {
+    background-color: var(--cor-secundaria);
+    border: 1px solid var(--cor-destaque);
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.projeto-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.projeto-card h3 {
+    font-size: 1.5rem;
+}
+
+.btn-codigo {
+    background-color: var(--cor-destaque);
+    color: var(--cor-texto-claro);
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn-codigo:hover {
+    background-color: #1c4b82;
+}
+
+.codigo-container {
+    display: none;
+    margin-top: 1rem;
+    background-color: #000;
+    color: #f0f0f0;
+    padding: 1rem;
+    border-radius: 5px;
+    max-height: 400px;
+    overflow-y: auto;
+    text-align: left;
+}
+
+.codigo-container pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/* --- Seção Contato --- */
+#contato {
+    text-align: center;
+}
+#contato p {
+    margin-bottom: 1.5rem;
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    background-color: var(--cor-secundaria);
+}
+
+/* --- Responsividade --- */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+    }
+    header nav {
+        margin-top: 1rem;
+    }
+    #inicio .hero-content h2 {
+        font-size: 2.5rem;
+    }
+}

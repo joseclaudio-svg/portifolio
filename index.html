@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>José - Portfólio de Desenvolvedor</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos para garantir a visibilidade dos botões */
+        :root {
+            --cor-texto: #e94560;
+            --cor-primaria: #1a1a2e;
+        }
+
+        .btn, .btn-projeto {
+            background-color: var(--cor-texto) !important;
+            color: var(--cor-primaria) !important;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            margin: 5px;
+            border: none;
+        }
+
+        .btn:hover, .btn-projeto:hover {
+            background-color: #ff6384 !important;
+            transform: translateY(-3px);
+        }
+
+        .btn-verde {
+            background-color: #28a745 !important; /* Verde */
+            color: #ffffff !important;
+        }
+        .btn-verde:hover {
+            background-color: #218838 !important; /* Verde mais escuro ao passar o mouse */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>José Claudio</h1>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#sobre">Sobre Mim</a></li>
+                    <li><a href="#projetos">Projetos</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="inicio">
+            <div class="hero-content">
+                <h2>Desenvolvedor full stack</h2>
+                <p>Criando soluções eficientes e aplicações interativas. Bem-vindo ao meu portfólio digital.</p>
+                <a href="#projetos" class="btn">Ver Meus Projetos</a>
+            </div>
+        </section>
+
+        <section id="sobre" class="container">
+            <h2>Sobre Mim</h2>
+            <p>
+                Olá! Sou um desenvolvedor em formação, focado em aprender e aplicar novas tecnologias para resolver problemas práticos. Tenho um interesse especial em desenvolvimento de aplicações com Python, explorando desde scripts de automação até interfaces gráficas. Estou sempre em busca de novos desafios para expandir meu conhecimento e minhas habilidades.
+            </p>
+        </section>
+
+        <section id="projetos" class="container">
+            <h2>Meus Projetos</h2>
+            <div class="projetos-grid">
+                <!-- Projeto 1: Controle de Estoque -->
+                <article class="projeto-card">
+                    <h3>Controle de Estoque</h3>
+                    <p>Uma aplicação de desktop construída com Python e Tkinter para gerenciar o estoque de produtos. Permite adicionar, remover e visualizar a quantidade de itens.</p>
+                    <div class="botoes-container">
+                        <!-- Substitua o # pelo link do projeto online, se houver -->
+                        <a href="#" class="btn-projeto btn-verde" target="_blank">Ver Projeto</a>
+                        <!-- Substitua o # pelo link do seu repositório no GitHub -->
+                        <a href="#" class="btn-projeto" target="_blank">Ver no GitHub</a>
+                    </div>
+                </article>
+
+                <!-- Projeto 2: Site Starbucks -->
+                <article class="projeto-card">
+                    <h3>Site Starbucks</h3>
+                    <p>Landing page inspirada no site do Starbucks. Projeto desenvolvido para praticar desenvolvimento web e design responsivo.</p>
+                    <div class="botoes-container">
+                        <a href="https://joseclaudio-svg.github.io/starbucks/" class="btn-projeto btn-verde" target="_blank">Ver Projeto</a>
+                        <a href="https://github.com/joseclaudio-svg/starbucks" class="btn-projeto" target="_blank">Ver no GitHub</a>
+                    </div>
+                </article>
+
+                <!-- Projeto 3: Jogo da Forca -->
+                <article class="projeto-card">
+                    <h3>Jogo da Forca</h3>
+                    <p>Um jogo clássico e interativo desenvolvido para a web. Teste seu vocabulário tentando adivinhar a palavra oculta.</p>
+                    <div class="botoes-container">
+                        <a href="https://joseclaudio-svg.github.io/forca/" class="btn-projeto btn-verde" target="_blank">Ver Projeto</a>
+                        <a href="https://github.com/joseclaudio-svg/forca" class="btn-projeto" target="_blank">Ver no GitHub</a>
+                    </div>
+                </article>
+
+                <!-- Adicione mais projetos aqui -->
+
+            </div>
+        </section>
+
+        <section id="contato" class="container">
+            <h2>Contato</h2>
+            <p>Gostou do meu trabalho ou tem alguma pergunta? Vamos nos conectar!</p>
+            <a href="https://github.com/josea" class="btn" target="_blank">Meu GitHub</a>
+            <a href="josesantos1425@gmail.com" class="btn" target="_blank">Meu email</a>
+            <!-- Adicione um link para seu email ou LinkedIn se desejar -->
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 José claudio... Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
